@@ -7,3 +7,5 @@ brain/
 graph.json
 index.md
 knowledge/
+exports/
+k-memory-stats.log

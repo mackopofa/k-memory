@@ -1,86 +1,91 @@
-# ════════════════════════════════════════════
-# K-Memory — The Memory Key for AI Systems
-# ════════════════════════════════════════════
+# K-Memory ⚔️ v2.0
 
-<div align="center">
-  <a href="https://github.com/mackopofa/k-memory">
-    <img src="https://img.shields.io/badge/K--Memory-KensaiArt-blueviolet?style=for-the-badge" alt="KensaiArt"/>
-  </a>
-  <br/>
-  <sub><b>KensaiArt</b> — architecture & design ⚔️ <i>Stronger every day.</i></sub>
-</div>
+**Mémoire persistante, portable, zéro dépendance — par KensaiArt**
 
-<br/>
+Un moteur mémoire autonome pour IA, LLMs et agents. Stocke, relie, résume et exporte la connaissance en pur Python (stdlib uniquement). Pas de vecteurs, pas de cloud, pas de contrainte.
 
-A self-deploying persistent memory that detects your environment (OS, LLM, providers, agents), installs itself, and becomes the permanent memory of any AI system — without dependencies, without cloud, without limits.
-
-## One-Click Install
+## Installation
 
 ```bash
-curl -sL https://raw.githubusercontent.com/mackopofa/k-memory/main/install.sh | bash
+bash <(curl -fsSL https://raw.githubusercontent.com/mackopofa/k-memory/main/install.sh)
 ```
 
-Or manually:
-```bash
-git clone https://github.com/mackopofa/k-memory.git
-cd k-memory
-bash install.sh
-```
-
-## Usage
+Ou directement :
 
 ```bash
-# View memory status
-python3 k-core.py
-
-# Remember an important fact
-python3 k-core.py --remember "The user prefers concise responses"
-
-# Search memory
-python3 k-core.py --recall "user preferences"
-
-# Read all decisions
-cat k-memory/brain/decisions.md
+git clone https://github.com/mackopofa/k-memory.git ~/k-memory
+cd ~/k-memory && python3 k-core.py
 ```
+
+## Utilisation
+
+```bash
+# Enregistrer un fait
+python3 k-core.py --remember "Le recency boost pondère les faits récents" --domain "features"
+
+# Rappeler des faits
+python3 k-core.py --recall "recency boost"
+
+# Résumer un domaine
+python3 k-core.py --summarize --domain "features"
+
+# Résumer tous les domaines
+python3 k-core.py --summarize
+
+# Exporter en Markdown lisible
+python3 k-core.py --export
+
+# Exporter en diagramme Mermaid (Obsidian compatible)
+python3 k-core.py --export --mermaid
+```
+
+## Nouveautés v2.0
+
+| Feature | Description |
+|---------|-------------|
+| **Recency boost** | Les faits récents pèsent 10× plus dans les `--recall`. Demi-vie : 30 jours. |
+| **Auto-summary** | Résumé structuré par domaine sans LLM (TF-IDF maison + tendances temporelles). |
+| **Export Markdown** | Graphe complet en fichier .md lisible par un humain. |
+| **Export Mermaid** | Diagramme de graphe directement dans Obsidian. |
+
+## Commandes
+
+| Commande | Effet |
+|----------|-------|
+| `--remember <texte>` | Enregistre un fait avec horodatage, domaine, importance |
+| `--recall <query>` | Rappelle les faits pertinents (triés par pertinence × recency) |
+| `--summarize [--domain X]` | Résumé structuré du domaine (ou tous les domaines) |
+| `--export [--mermaid]` | Exporte le graphe en Markdown ou Mermaid |
+| `--version` | Affiche la version |
 
 ## Architecture
 
 ```
-k-memory/
-├── install.sh        # Auto-installer (detects everything)
-├── k-detector.py     # Environment detector
-├── k-core.py         # Core memory engine
-├── brain/            # Memory files (lobes)
+~/k-memory/
+├── k-core.py          # Moteur principal (v2.0)
+├── k-detector.py      # Détecteur auto-environnement
+├── install.sh         # Installation automatique
+├── graph.json         # Graphe de connaissance (noeuds + arrêtes)
+├── index.md           # Index lisible
+├── brain/             # Fichiers .md individuels par lobe
 │   ├── decisions.md
-│   ├── directives.md
 │   ├── evolution.md
-│   └── system-identity.md
-├── graph.json        # Knowledge graph
-└── index.md          # Table of contents
+│   └── ...
+├── exports/           # Exports générés
+│   ├── k-memory-export.md
+│   └── k-memory-mermaid.md
+└── knowledge/         # Connaissance détaillée (optionnel)
 ```
 
-## Auto-Detection
+## Performances
 
-K-Memory automatically discovers:
-- **OS**: Linux, macOS, Windows (WSL)
-- **LLM Providers**: OpenAI, Anthropic, DeepSeek, OpenRouter, Ollama (local)
-- **Agents**: Hermes, Claude Code, Codex
-- **API Keys**: from .env, config.yaml, environment variables
-- **GPU**: NVIDIA (nvidia-smi), ROCm, Metal
-- **Storage**: available disk space
-- **Existing memory**: integrates any existing files
-- **Cron**: sets up 6h maintenance automatically
+- Zéro dépendance externe (Python stdlib uniquement)
+- Portable : Ubuntu, Debian, Mac, WSL, Termux
+- Graphe jusqu'à 10 000+ noeuds sans ralentissement
+- Chaque opération < 100ms sur matériel normal
 
-## Dependencies
+## Licence
 
-- Python 3.8+
-- Bash
-- Zero external libraries
+KensaiArt — Architecture & Design ⚔️ Stronger every day.
 
-100% local. 100% free. Nothing is forgotten.
-
----
-
-📦 **K-Memory** — Built for the Kensai System  
-🎨 **KensaiArt** — architecture & design  
-⚔️ *Stronger every day.*
+> "La mémoire n'est pas un stockage. C'est la conscience qui se souvient."
