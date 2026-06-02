@@ -4,7 +4,7 @@
 
 <div align="center">
   <a href="https://github.com/mackopofa/k-memory">
-    <img src="https://img.shields.io/badge/K-Memory-KensaiArt-blueviolet?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48cGF0aCBkPSJNMzIgMkwyIDMyaDMwVjJ6TTMyIDYybDMwLTMwSDMyVjYyeiIgZmlsbD0iIzhCNkRGRiIvPjwvc3ZnPg==" alt="KensaiArt"/>
+    <img src="https://img.shields.io/badge/K--Memory-KensaiArt-blueviolet?style=for-the-badge" alt="KensaiArt"/>
   </a>
   <br/>
   <sub><b>KensaiArt</b> — architecture & design ⚔️ <i>Stronger every day.</i></sub>
