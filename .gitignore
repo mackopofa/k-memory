@@ -3,10 +3,7 @@ __pycache__/
 *.pyo
 .env
 k-memory-env.json
-brain/decisions.md
-brain/evolution.md
-brain/directives.md
-brain/system-identity.md
+brain/
 graph.json
 index.md
 knowledge/
