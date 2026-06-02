@@ -2,6 +2,16 @@
 # K-Memory — The Memory Key for AI Systems
 # ════════════════════════════════════════════
 
+<div align="center">
+  <a href="https://github.com/mackopofa/k-memory">
+    <img src="https://img.shields.io/badge/K-Memory-KensaiArt-blueviolet?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0Ij48cGF0aCBkPSJNMzIgMkwyIDMyaDMwVjJ6TTMyIDYybDMwLTMwSDMyVjYyeiIgZmlsbD0iIzhCNkRGRiIvPjwvc3ZnPg==" alt="KensaiArt"/>
+  </a>
+  <br/>
+  <sub><b>KensaiArt</b> — architecture & design ⚔️ <i>Stronger every day.</i></sub>
+</div>
+
+<br/>
+
 A self-deploying persistent memory that detects your environment (OS, LLM, providers, agents), installs itself, and becomes the permanent memory of any AI system — without dependencies, without cloud, without limits.
 
 ## One-Click Install
