@@ -1,40 +1,35 @@
 # ════════════════════════════════════════════
-# K-Memory — Clé de Mémoire du Kensai System
+# K-Memory — The Memory Key for AI Systems
 # ════════════════════════════════════════════
 
-Une mémoire persistante qui se déploie toute seule.
-Détecte l'environnement (OS, LLM, IA, providers), s'installe,
-et devient la mémoire permanente de n'importe quel système.
+A self-deploying persistent memory that detects your environment (OS, LLM, providers, agents), installs itself, and becomes the permanent memory of any AI system — without dependencies, without cloud, without limits.
 
-## Installation
+## One-Click Install
 
 ```bash
-# 1. Télécharger les fichiers
-git clone https://github.com/mackopopa/k-memory.git
-cd k-memory
+curl -sL https://raw.githubusercontent.com/mackopofa/k-memory/main/install.sh | bash
+```
 
-# 2. Installer (auto-détection complète)
+Or manually:
+```bash
+git clone https://github.com/mackopofa/k-memory.git
+cd k-memory
 bash install.sh
 ```
 
-Ou en un clic :
-```bash
-curl -sL https://raw.githubusercontent.com/mackopopa/k-memory/main/install.sh | bash
-```
-
-## Utilisation
+## Usage
 
 ```bash
-# Voir l'état de la mémoire
+# View memory status
 python3 k-core.py
 
-# Enregistrer un fait important
-python3 k-core.py --remember "Ma décision importante"
+# Remember an important fact
+python3 k-core.py --remember "The user prefers concise responses"
 
-# Chercher dans la mémoire
-python3 k-core.py --recall "sujet à retrouver"
+# Search memory
+python3 k-core.py --recall "user preferences"
 
-# Voir les décisions enregistrées
+# Read all decisions
 cat k-memory/brain/decisions.md
 ```
 
@@ -42,33 +37,40 @@ cat k-memory/brain/decisions.md
 
 ```
 k-memory/
-├── install.sh        # Auto-installateur
-├── k-detector.py     # Détecteur d'environnement
-├── k-core.py         # Moteur de mémoire principal
-├── brain/            # Fichiers de mémoire (lobes)
+├── install.sh        # Auto-installer (detects everything)
+├── k-detector.py     # Environment detector
+├── k-core.py         # Core memory engine
+├── brain/            # Memory files (lobes)
 │   ├── decisions.md
 │   ├── directives.md
 │   ├── evolution.md
 │   └── system-identity.md
-├── graph.json        # Graphe de connaissances
-└── index.md          # Table des matières
+├── graph.json        # Knowledge graph
+└── index.md          # Table of contents
 ```
 
-## Ce qu'il détecte automatiquement
+## Auto-Detection
 
-- **OS**: Linux, Mac, Windows (WSL)
-- **LLM Providers**: OpenAI, Anthropic, DeepSeek, OpenRouter, Ollama
+K-Memory automatically discovers:
+- **OS**: Linux, macOS, Windows (WSL)
+- **LLM Providers**: OpenAI, Anthropic, DeepSeek, OpenRouter, Ollama (local)
 - **Agents**: Hermes, Claude Code, Codex
-- **API Keys**: dans .env, config.yaml, variables d'environnement
-- **GPU**: NVIDIA (nvidia-smi)
-- **Stockage**: espace disque disponible
-- **Mémoire existante**: intègre les fichiers déjà présents
-- **Cron**: maintenance automatique toutes les 6h
+- **API Keys**: from .env, config.yaml, environment variables
+- **GPU**: NVIDIA (nvidia-smi), ROCm, Metal
+- **Storage**: available disk space
+- **Existing memory**: integrates any existing files
+- **Cron**: sets up 6h maintenance automatically
 
-## Dépendances
+## Dependencies
 
 - Python 3.8+
 - Bash
-- Aucune bibliothèque externe
+- Zero external libraries
 
-100% local. 100% gratuit. Rien n'est oublié.
+100% local. 100% free. Nothing is forgotten.
+
+---
+
+📦 **K-Memory** — Built for the Kensai System  
+🎨 **KensaiArt** — architecture & design  
+⚔️ *Stronger every day.*
