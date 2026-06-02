@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+k-memory-env.json
+brain/decisions.md
+brain/evolution.md
+brain/directives.md
+brain/system-identity.md
+graph.json
+index.md
+knowledge/
