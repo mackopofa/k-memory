@@ -18,7 +18,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 DEFAULT_BACKEND = "ollama"       # Ollama = gratuit, local
 OLLAMA_MODEL = "nomic-embed-text"
-SIMILARITY_THRESHOLD = 0.55
+SIMILARITY_THRESHOLD = 0.50
 OLLAMA_URL = "http://localhost:11434"
 
 # ── Persistance du choix backend ──────────────
@@ -91,11 +91,22 @@ class KEmbeddings:
     def __init__(self, base_dir=None):
         self.base_dir = base_dir or os.path.join(os.path.expanduser("~"), ".hermes", "k-memory")
         
-        # Import k-core.py (tiret interdit en Python)
+        # Import k-core.py — priorité au fichier dans le même repo
         import importlib.util
-        core_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "k-core.py")
+        # D'abord : chercher à côté de nous-mêmes (../k-core.py)
+        my_dir = os.path.dirname(os.path.abspath(__file__))
+        core_path = os.path.join(my_dir, "k-core.py")
         if not os.path.exists(core_path):
+            # Chercher dans le parent (extras/../)
+            core_path = os.path.join(os.path.dirname(my_dir), "k-core.py")
+        if not os.path.exists(core_path):
+            # Fallback : dans base_dir (si copié)
             core_path = os.path.join(self.base_dir, "k-core.py")
+        if not os.path.exists(core_path):
+            raise FileNotFoundError(
+                f"k-core.py introuvable. Cherché: extras/, repo/, {self.base_dir}/\n"
+                f"Exécutez depuis le dossier k-memory/ ou copiez k-core.py dans {self.base_dir}/"
+            )
         spec = importlib.util.spec_from_file_location("kcore", core_path)
         kc = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(kc)
