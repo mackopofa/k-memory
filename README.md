@@ -1,4 +1,4 @@
-# K-Memory ⚔️ v2.0
+# K-Memory ⚔️ v2.1
 
 **Mémoire persistante, portable, zéro dépendance — par KensaiArt**
 
@@ -27,10 +27,10 @@ python3 k-core.py --remember "Le recency boost pondère les faits récents" --do
 python3 k-core.py --recall "recency boost"
 
 # Résumer un domaine
-python3 k-core.py --summarize --domain "features"
+python3 k-core.py --summary --domain "features"
 
 # Résumer tous les domaines
-python3 k-core.py --summarize
+python3 k-core.py --summarize-all
 
 # Exporter en Markdown lisible
 python3 k-core.py --export
@@ -39,14 +39,11 @@ python3 k-core.py --export
 python3 k-core.py --export --mermaid
 ```
 
-## Nouveautés v2.0
+## Tests
 
-| Feature | Description |
-|---------|-------------|
-| **Recency boost** | Les faits récents pèsent 10× plus dans les `--recall`. Demi-vie : 30 jours. |
-| **Auto-summary** | Résumé structuré par domaine sans LLM (TF-IDF maison + tendances temporelles). |
-| **Export Markdown** | Graphe complet en fichier .md lisible par un humain. |
-| **Export Mermaid** | Diagramme de graphe directement dans Obsidian. |
+```bash
+python3 tests/test_core.py    # 30 tests, 0 dépendance externe
+```
 
 ## Commandes
 
@@ -54,7 +51,8 @@ python3 k-core.py --export --mermaid
 |----------|-------|
 | `--remember <texte>` | Enregistre un fait avec horodatage, domaine, importance |
 | `--recall <query>` | Rappelle les faits pertinents (triés par pertinence × recency) |
-| `--summarize [--domain X]` | Résumé structuré du domaine (ou tous les domaines) |
+| `--summary [--domain X]` | Résumé structuré d'un domaine |
+| `--summarize-all` | Résumé de tous les domaines |
 | `--export [--mermaid]` | Exporte le graphe en Markdown ou Mermaid |
 | `--version` | Affiche la version |
 
@@ -62,18 +60,17 @@ python3 k-core.py --export --mermaid
 
 ```
 ~/k-memory/
-├── k-core.py          # Moteur principal (v2.0)
+├── k-core.py          # Moteur principal (v2.1)
 ├── k-detector.py      # Détecteur auto-environnement
 ├── install.sh         # Installation automatique
+├── LICENSE            # MIT
+├── tests/
+│   └── test_core.py   # 30 tests, 0 dépendance
 ├── graph.json         # Graphe de connaissance (noeuds + arrêtes)
 ├── index.md           # Index lisible
 ├── brain/             # Fichiers .md individuels par lobe
-│   ├── decisions.md
-│   ├── evolution.md
-│   └── ...
+├── summaries/         # Résumés automatiques par domaine
 ├── exports/           # Exports générés
-│   ├── k-memory-export.md
-│   └── k-memory-mermaid.md
 └── knowledge/         # Connaissance détaillée (optionnel)
 ```
 
@@ -86,6 +83,6 @@ python3 k-core.py --export --mermaid
 
 ## Licence
 
-KensaiArt — Architecture & Design ⚔️ Stronger every day.
+MIT — Copyright (c) 2026 KensaiArt. Voir [LICENSE](LICENSE).
 
 > "La mémoire n'est pas un stockage. C'est la conscience qui se souvient."
