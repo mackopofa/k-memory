@@ -1,8 +1,8 @@
 # K-Memory ⚔️ v2.1
 
-**Mémoire persistante, portable, zéro dépendance — par KensaiArt**
+**Persistent memory for AI agents. Zero dependencies. Pure Python.**
 
-Un moteur mémoire autonome pour IA, LLMs et agents. Stocke, relie, résume et exporte la connaissance en pur Python (stdlib uniquement). Pas de vecteurs, pas de cloud, pas de contrainte.
+A self-contained memory engine for LLMs and agents. Store, link, summarize and export knowledge using only Python stdlib. No vectors, no cloud, no lock-in.
 
 ## Installation
 
@@ -10,79 +10,96 @@ Un moteur mémoire autonome pour IA, LLMs et agents. Stocke, relie, résume et e
 bash <(curl -fsSL https://raw.githubusercontent.com/mackopofa/k-memory/main/install.sh)
 ```
 
-Ou directement :
+Or manually:
 
 ```bash
 git clone https://github.com/mackopofa/k-memory.git ~/k-memory
 cd ~/k-memory && python3 k-core.py
 ```
 
-## Utilisation
+## Quick Start
 
 ```bash
-# Enregistrer un fait
-python3 k-core.py --remember "Le recency boost pondère les faits récents" --domain "features"
+# Store a fact
+python3 k-core.py --remember "Recency boost weights recent facts 10x higher" --domain "features"
 
-# Rappeler des faits
+# Retrieve relevant facts
 python3 k-core.py --recall "recency boost"
 
-# Résumer un domaine
+# Summarize a domain
 python3 k-core.py --summary --domain "features"
 
-# Résumer tous les domaines
+# Summarize all domains
 python3 k-core.py --summarize-all
 
-# Exporter en Markdown lisible
+# Export knowledge graph as Markdown
 python3 k-core.py --export
 
-# Exporter en diagramme Mermaid (Obsidian compatible)
+# Export as Mermaid diagram (Obsidian-ready)
 python3 k-core.py --export --mermaid
 ```
+
+## Features
+
+| Feature | What it does |
+|---------|-------------|
+| **Recency boost** | Recent facts weighted 10x higher. Half-life: 90 days. |
+| **Auto-summary** | Structured domain summaries with TF-IDF + trend detection. No LLM needed. |
+| **Deduplication** | Jaccard + SequenceMatcher fusion. No duplicate facts. |
+| **Export Markdown** | Full knowledge graph as human-readable .md |
+| **Export Mermaid** | Interactive graph diagram for Obsidian/Notion |
+| **Portable** | Single file, zero dependencies, works everywhere |
+
+## Commands
+
+| Command | Effect |
+|---------|--------|
+| `--remember <text>` | Store a fact with timestamp, domain, importance |
+| `--recall <query>` | Retrieve relevant facts (sorted by relevance × recency) |
+| `--summary [--domain X]` | Structured summary of a domain |
+| `--summarize-all` | Summary of all domains |
+| `--export [--mermaid]` | Export graph as Markdown or Mermaid |
+| `--version` | Show version |
 
 ## Tests
 
 ```bash
-python3 tests/test_core.py    # 30 tests, 0 dépendance externe
+python3 tests/test_core.py    # 30 tests, zero external dependencies
 ```
-
-## Commandes
-
-| Commande | Effet |
-|----------|-------|
-| `--remember <texte>` | Enregistre un fait avec horodatage, domaine, importance |
-| `--recall <query>` | Rappelle les faits pertinents (triés par pertinence × recency) |
-| `--summary [--domain X]` | Résumé structuré d'un domaine |
-| `--summarize-all` | Résumé de tous les domaines |
-| `--export [--mermaid]` | Exporte le graphe en Markdown ou Mermaid |
-| `--version` | Affiche la version |
 
 ## Architecture
 
 ```
 ~/k-memory/
-├── k-core.py          # Moteur principal (v2.1)
-├── k-detector.py      # Détecteur auto-environnement
-├── install.sh         # Installation automatique
+├── k-core.py          # Memory engine (v2.1)
+├── k-detector.py      # Environment auto-detector
+├── install.sh         # One-command installer
 ├── LICENSE            # MIT
 ├── tests/
-│   └── test_core.py   # 30 tests, 0 dépendance
-├── graph.json         # Graphe de connaissance (noeuds + arrêtes)
-├── index.md           # Index lisible
-├── brain/             # Fichiers .md individuels par lobe
-├── summaries/         # Résumés automatiques par domaine
-├── exports/           # Exports générés
-└── knowledge/         # Connaissance détaillée (optionnel)
+│   └── test_core.py   # 30 tests, pure stdlib
+├── graph.json         # Knowledge graph (nodes + edges)
+├── index.md           # Readable index
+├── brain/             # Individual .md lobe files
+├── summaries/         # Auto-generated domain summaries
+├── exports/           # Generated exports
+└── knowledge/         # Detailed knowledge (optional)
 ```
 
-## Performances
+## Performance
 
-- Zéro dépendance externe (Python stdlib uniquement)
-- Portable : Ubuntu, Debian, Mac, WSL, Termux
-- Graphe jusqu'à 10 000+ noeuds sans ralentissement
-- Chaque opération < 100ms sur matériel normal
+- Zero external dependencies (pure Python stdlib)
+- Portable: Ubuntu, Debian, macOS, WSL, Termux
+- Handles 10,000+ nodes without slowdown
+- Each operation < 100ms on commodity hardware
 
-## Licence
+## Why K-Memory?
 
-MIT — Copyright (c) 2026 KensaiArt. Voir [LICENSE](LICENSE).
+K-Memory was born from a simple observation: current memory systems for AI agents either depend on cloud vector databases or bloat dependencies. K-Memory is the opposite — it refuses to grow. One file, one data format, one commit, one `python3` command. It doesn't try to be everything. It tries to be enough.
 
-> "La mémoire n'est pas un stockage. C'est la conscience qui se souvient."
+## License
+
+MIT — Copyright (c) 2026 KensaiArt. See [LICENSE](LICENSE).
+
+---
+
+*KensaiArt — Architecture & Design ⚔️ Stronger every day.*
