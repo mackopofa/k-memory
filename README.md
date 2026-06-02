@@ -61,12 +61,6 @@ python3 k-core.py --export --mermaid
 | `--export [--mermaid]` | Export graph as Markdown or Mermaid |
 | `--version` | Show version |
 
-## Tests
-
-```bash
-python3 tests/test_core.py    # 30 tests, zero external dependencies
-```
-
 ## Architecture
 
 ```
@@ -81,8 +75,30 @@ python3 tests/test_core.py    # 30 tests, zero external dependencies
 ├── index.md           # Readable index
 ├── brain/             # Individual .md lobe files
 ├── summaries/         # Auto-generated domain summaries
+├── extras/            # Optional plugins
+│   └── k-embeddings.py  # Semantic search (Ollama)
 ├── exports/           # Generated exports
 └── knowledge/         # Detailed knowledge (optional)
+```
+
+## Tests
+
+```bash
+python3 tests/test_core.py    # 30 tests, zero external dependencies
+```
+
+## Extras
+
+Optional plugins that extend K-Memory with advanced capabilities. They require **external dependencies** — unlike the core.
+
+| Plugin | What it does | Requires |
+|--------|-------------|----------|
+| `extras/k-embeddings.py` | Semantic search by **meaning**, not keywords | Ollama + `requests` |
+
+```bash
+pip install requests
+ollama pull nomic-embed-text    # 274 MB, local, free
+python3 extras/k-embeddings.py --recall "concept"
 ```
 
 ## Performance
