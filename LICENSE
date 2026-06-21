@@ -12,6 +12,25 @@ furnished to do so, subject to the following conditions:
 The above copyright notice and this permission notice shall be included in all
 copies or substantial portions of the Software.
 
+ATTRIBUTION REQUIREMENT / EXIGENCE D'ATTRIBUTION :
+
+EN: Any use, distribution, or deployment of this Software, whether modified or
+unmodified, must include a clearly visible credit to "KensaiArt" in the user
+interface, documentation, or public-facing materials. This includes but is not
+limited to: web applications, dashboards, APIs, command-line tools, and any
+derivative works. The credit must be visible to end users and may take the
+form of "Powered by KensaiArt", "Based on KensaiArt K-Memory", or an
+equivalent mention approved by the copyright holder.
+
+FR: Toute utilisation, distribution ou déploiement de ce Logiciel, modifié ou
+non, doit inclure une mention clairement visible de "KensaiArt" dans
+l'interface utilisateur, la documentation ou les supports publics. Cela inclut
+sans s'y limiter : applications web, tableaux de bord, APIs, outils en ligne
+de commande et toute œuvre dérivée. La mention doit être visible par les
+utilisateurs finaux et peut prendre la forme de "Propulsé par KensaiArt",
+"Basé sur KensaiArt K-Memory", ou une mention équivalente approuvée par le
+détenteur des droits d'auteur.
+
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
